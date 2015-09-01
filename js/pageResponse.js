@@ -35,13 +35,7 @@ function pageResponse(opt) {
             s.webkitTransform = "scale(" + num + ")";
             s.transform = "scale(" + num + ")";
         if(mode == "auto"){
-            s.position = "absolute";
-            s.left = 0;
-            s.top =0;
-            s.marginLeft = 0;
-            s.marginTop = 0;
-            // document.body.style.height = ph * num + "px";// 兼容android2.3.5系统下body高度不自动刷新的bug
-            // $("#center_center_div").html("auto模式下的参数：<br/>position:"+s.position+"<br/>"+"width:"+s.width+"<br/>"+"height:"+s.height+"<br/>"+"webkitTransformOrigin:"+s.webkitTransformOrigin+"<br/>"+"webkitTransform:"+s.webkitTransform);
+            document.body.style.height = ph * num + "px";// 兼容android2.3.5系统下body高度不自动刷新的bug
         }
         else if(mode == "contain" || mode == "cover"){
             s.position = "absolute";
@@ -53,8 +47,6 @@ function pageResponse(opt) {
             s.transformOrigin = "center center 0";
             document.body.style.msTouchAction = "none";// 阻止默认滑屏事件
             document.ontouchmove = function(e){e.preventDefault()}
-             // $("#center_center_div").html("contain模式下的参数：<br/>position:"+s.position+"<br/>"+"width:"+s.width+"<br/>"+"height:"+s.height+"<br/>"+"webkitTransformOrigin:"+s.webkitTransformOrigin+"<br/>"+"webkitTransform:"+s.webkitTransform);
-
         }
     }
     var dw = document.documentElement.clientWidth,
